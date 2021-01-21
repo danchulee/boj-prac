@@ -7,6 +7,7 @@ public class Prob1339 {
     static String[] words;
 
     public static void main(String[] args) {
+        Map<Character, Integer> letters = new HashMap<>();
         Scanner sc = new Scanner(System.in);
         N = sc.nextInt();
         words = new String[N];
@@ -25,8 +26,9 @@ public class Prob1339 {
                 } else map.put(words[j].charAt(i), 1);
                 max_key = Math.max(max_key, map.get(words[j].charAt(i)));
             }
-
+            // ... 알파벳에 숫자 지정
         }
+        // ... 연산
 
-    }
-}
+    } // end of Main
+} // end of Class
