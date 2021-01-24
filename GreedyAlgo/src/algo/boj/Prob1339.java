@@ -27,13 +27,10 @@ public class Prob1339 {
         }
 
         List<Map.Entry<Character, Integer>> list_entries = new ArrayList<>(scores.entrySet());
-        // compare로 값을 비교
-//        Collections.sort(list_entries, Comparator.comparing(Map.Entry::getKey));
 
         Collections.sort(list_entries, new Comparator<Map.Entry<Character, Integer>>() {
-            // compare로 값을 비교
             public int compare(Map.Entry<Character, Integer> obj1, Map.Entry<Character, Integer> obj2) {
-                // 오름 차순 정렬
+                // 오름차순 정렬
                 return obj1.getValue().compareTo(obj2.getValue());
             }
         });

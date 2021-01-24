@@ -1,5 +1,9 @@
 /GreedyAlgo/out/
 /DynamicProgramming/out/
+/Stack/out
+.DS_Store
+
+
 
 ### IntelliJ IDEA ###
 .idea
@@ -9,5 +13,7 @@
 *.ipr
 /GreedyAlgo/.idea
 /DynamicProgramming/.idea
+/Stack/.idea
 /GreedyAlgo/*.iml
 /DynamicProgramming/*.iml
+/Stack/*.iml
