@@ -1,3 +1,5 @@
+package algo.boj;
+
 import java.util.Scanner;
 import java.util.Stack;
 
