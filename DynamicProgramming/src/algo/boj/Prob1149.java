@@ -1,3 +1,5 @@
+package algo.boj;
+
 import java.util.Scanner;
 
 public class Prob1149 {
