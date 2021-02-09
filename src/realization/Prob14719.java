@@ -38,9 +38,6 @@ public class Prob14719 {
 //                next_height = Integer.parseInt(st.nextToken());
 //            } while (st.hasMoreTokens() && next_height < height);
 
-    }
 
-
-        System.out.print(answer);
-} // end of Main
+    } // end of Main
 } // end of Class
