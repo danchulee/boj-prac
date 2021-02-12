@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 //중복조합은 뽑은 수 배열에 저장하기 기억...
-public class Prob15657 {
+public class Prob15657_N과M8 {
     static int N, M;
     static int[] nums;
     static int[] picked;

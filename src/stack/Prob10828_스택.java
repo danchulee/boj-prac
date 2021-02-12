@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-public class Prob10828 {
+public class Prob10828_스택 {
     static Stack<Integer> stack = new Stack<>();
     static int N;
 

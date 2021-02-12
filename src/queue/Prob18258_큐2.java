@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Prob18258 {
+public class Prob18258_큐2 {
     static int N;
     static Deque<Integer> queue = new ArrayDeque<Integer>();
 

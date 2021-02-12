@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Prob16918 {
+public class Prob16918_봄버맨 {
     static int R, C, N;
     static char[][] map;
     static Queue<int[]> bombs = new LinkedList<>();

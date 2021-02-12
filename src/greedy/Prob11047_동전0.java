@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Prob11047 {
+public class Prob11047_동전0 {
     static int[] coins;
     static int ans;
 

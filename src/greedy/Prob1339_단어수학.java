@@ -2,7 +2,7 @@ package algo.boj;
 
 import java.util.*;
 
-public class Prob1339 {
+public class Prob1339_단어수학 {
     static int N, ans;
     static String[] words;
     static Map<Character, Integer> scores = new HashMap<>();

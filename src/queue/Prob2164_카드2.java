@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Prob2164 {
+public class Prob2164_카드2 {
     static Queue<Integer> q = new LinkedList<Integer>();
 
     public static void main(String[] args) throws Exception {

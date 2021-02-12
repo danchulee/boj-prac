@@ -3,7 +3,7 @@ package algo.boj;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Prob2493 {
+public class Prob2493_탑 {
     static Stack<Integer> towers = new Stack<>();
     static Stack<Integer> pos = new Stack<>();
     static int N;

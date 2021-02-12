@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Prob15650 {
+public class Prob15650_N과M2 {
     static int N, M;
     static int[] visit;
     static StringBuilder sb = new StringBuilder();

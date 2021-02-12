@@ -3,7 +3,7 @@ package algo.boj;
 import java.io.*;
 import java.util.Stack;
 
-public class Prob17299 {
+public class Prob17299_오등큰수 {
     static int N;
     static int[] counts = new int[1000001];
 

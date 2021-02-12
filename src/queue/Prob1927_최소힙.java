@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 
-public class Prob1927 {
+public class Prob1927_최소힙 {
     static int N;
     static PriorityQueue<Integer> pq = new PriorityQueue<>();
 

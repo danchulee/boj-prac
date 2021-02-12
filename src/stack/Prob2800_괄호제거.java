@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Prob2800 {
+public class Prob2800_괄호제거 {
     static String expression;
     static Map<String, Integer> duplicate = new HashMap<>();
     static PriorityQueue<String> pq = new PriorityQueue<String>();

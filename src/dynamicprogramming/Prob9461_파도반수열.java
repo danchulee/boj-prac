@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Prob9461 {
+public class Prob9461_파도반수열 {
     static int T, N;
     static long[] dps;
 

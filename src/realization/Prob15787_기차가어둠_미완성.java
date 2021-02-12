@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class Prob15787 {
+public class Prob15787_기차가어둠_미완성 {
     static int N, M;
 
     public static void main(String[] args) throws Exception {

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Prob1260 {
+public class Prob1260_DFS와BFS {
     static int N, M, V;
     static boolean[] visit;
     static int[][] graph;

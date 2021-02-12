@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Prob15663 {
+public class Prob15663_N과M9 {
     static StringBuilder sb = new StringBuilder();
     static int N, M;
     static ArrayList<Integer> numbers = new ArrayList<>();

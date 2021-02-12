@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-public class Prob2504 {
+public class Prob2504_괄호의값 {
     static Stack<String> stack = new Stack<>();
     static int answer;
 

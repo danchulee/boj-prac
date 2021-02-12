@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Prob1966 {
+public class Prob1966_프린터큐 {
     static int N, M, num, target;
 
     public static void main(String[] args) throws Exception {

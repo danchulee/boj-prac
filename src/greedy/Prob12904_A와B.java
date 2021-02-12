@@ -2,7 +2,7 @@ package algo.boj;
 
 import java.util.Scanner;
 
-public class Prob12904 {
+public class Prob12904_A와B {
     static int ans = 0;
 
     public static void main(String[] args) {

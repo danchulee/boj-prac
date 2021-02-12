@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Prob7576 {
+public class Prob7576_토마토 {
     static final int[] dx = {-1, 1, 0, 0};
     static final int[] dy = {0, 0, -1, 1};
     static int M, N;

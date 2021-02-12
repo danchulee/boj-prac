@@ -3,7 +3,7 @@ package algo.boj;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Prob11399 {
+public class Prob11399_ATM {
     static int N, ans = 0;
     static int[] times;
 
