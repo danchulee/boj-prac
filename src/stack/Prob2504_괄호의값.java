@@ -1,4 +1,4 @@
-package algo.boj;
+package stack;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

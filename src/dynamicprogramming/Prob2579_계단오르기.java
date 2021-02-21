@@ -1,3 +1,4 @@
+package dynamicprogramming;
 import java.io.*;
 
 public class Prob2579_계단오르기 {

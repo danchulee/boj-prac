@@ -1,3 +1,4 @@
+package dynamicprogramming;
 import java.util.Scanner;
 
 public class Prob9461_파도반수열 {

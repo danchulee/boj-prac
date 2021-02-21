@@ -1,4 +1,6 @@
 .DS_Store
+.classpath
+.project
 /out
 
 
@@ -9,3 +11,4 @@
 *.iws
 *.iml
 *.ipr
+/bin/

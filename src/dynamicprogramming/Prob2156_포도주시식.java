@@ -1,3 +1,5 @@
+package dynamicprogramming;
+
 import java.io.*;
 
 public class Prob2156_포도주시식 {

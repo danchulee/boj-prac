@@ -1,4 +1,4 @@
-package algo.boj;
+package greedy;
 
 import java.util.Scanner;
 
