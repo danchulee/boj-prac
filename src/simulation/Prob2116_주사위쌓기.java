@@ -11,7 +11,6 @@ public class Prob2116_주사위쌓기 {
 	static final int[] aside = { 5, 3, 4, 1, 2, 0 };
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 
@@ -26,12 +25,21 @@ public class Prob2116_주사위쌓기 {
 
 		int sum;
 		for (int i = 0; i < 6; i++) {
+			sum = 0;
 			upDown[0] = new int[] { i, aside[i] };
 			for (int j = 1; j < N; j++)
 				findUpDown(j, dice[j - 1][upDown[j - 1][1]]); // 위 아래면인덱 찾아둠
-			// dfs로 짜야할듯..
-			mix(0, 0);
-
+//			mix(0, 0);
+			for (int j = 0; j < N; j++) {
+				int max = 0;
+				for (int k = 0; k < 6; k++) {
+					if (upDown[j][0] == k || upDown[j][1] == k)
+						continue;
+					max = (dice[j][k] > max ? dice[j][k] : max);
+				}
+				sum += max;
+			}
+			answer = Math.max(answer, sum);
 		}
 		System.out.print(answer);
 	}
@@ -44,18 +52,18 @@ public class Prob2116_주사위쌓기 {
 		upDown[index] = new int[] { numIndex, aside[numIndex] };
 	}
 
-	static void mix(int diceIndex, int sum) {
-		if (sum + (N - diceIndex) * 6 < answer)
-			return;
-		if (diceIndex == N) {
-			answer = Math.max(answer, sum);
-			return;
-		}
-		for (int i = 0; i < 6; i++) {
-			if (upDown[diceIndex][0] == i || upDown[diceIndex][1] == i)
-				continue;
-			mix(diceIndex + 1, sum + dice[diceIndex][i]);
-		}
-	}
+//	static void mix(int diceIndex, int sum) {
+//		if (sum + (N - diceIndex) * 6 < answer)
+//			return;
+//		if (diceIndex == N) {
+//			answer = Math.max(answer, sum);
+//			return;
+//		}
+//		for (int i = 0; i < 6; i++) {
+//			if (upDown[diceIndex][0] == i || upDown[diceIndex][1] == i)
+//				continue;
+//			mix(diceIndex + 1, sum + dice[diceIndex][i]);
+//		}
+//	}
 
 }
