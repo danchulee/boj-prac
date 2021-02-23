@@ -15,7 +15,7 @@ public class Prob2116_주사위쌓기 {
 		StringTokenizer st;
 
 		N = Integer.parseInt(br.readLine());
-		dice = new int[N][6];
+		dice = new int[N][7];
 		upDown = new int[N][];
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -23,7 +23,7 @@ public class Prob2116_주사위쌓기 {
 				dice[i][j] = Integer.parseInt(st.nextToken());
 		}
 
-		int sum;
+		int sum, max;
 		for (int i = 0; i < 6; i++) {
 			sum = 0;
 			upDown[0] = new int[] { i, aside[i] };
@@ -31,11 +31,12 @@ public class Prob2116_주사위쌓기 {
 				findUpDown(j, dice[j - 1][upDown[j - 1][1]]); // 위 아래면인덱 찾아둠
 //			mix(0, 0);
 			for (int j = 0; j < N; j++) {
-				int max = 0;
+				max = 0;
 				for (int k = 0; k < 6; k++) {
 					if (upDown[j][0] == k || upDown[j][1] == k)
 						continue;
-					max = (dice[j][k] > max ? dice[j][k] : max);
+					max = (Math.max(dice[j][k], max));
+					if(max == 6) break;
 				}
 				sum += max;
 			}
