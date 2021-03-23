@@ -2,7 +2,7 @@ package string;
 
 import java.io.*;
 
-public class Prob_IOIOI {
+public class Prob_IOIOI_시간초과 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());

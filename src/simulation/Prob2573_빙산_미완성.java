@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 // dfs로 덩어리 개수 셀 수 있
-public class Prob2573_빙산 {
+public class Prob2573_빙산_미완성 {
     static int N, M, answer;
     static int[][] map;
     static boolean[][] visit;
