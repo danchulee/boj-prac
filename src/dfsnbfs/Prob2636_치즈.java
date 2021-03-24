@@ -38,7 +38,7 @@ public class Prob2636_치즈 {
             time++;
             for (int i = 0; i < size; i++) {
                 int[] pos = cheese.poll();
-                for (int j = 0; j < 4; j++) {
+                for (int j = 0; j < 4; j++) { // 사방 탐색으로 다음에 녹을 치즈 탐색
                     nx = pos[0] + dx[j];
                     ny = pos[1] + dy[j];
                     if (nx < 0 || ny < 0 || nx >= N || ny >= M || map[nx][ny] != 1) continue;
@@ -50,7 +50,7 @@ public class Prob2636_치즈 {
         }
     }
 
-    public static void cheeseAir() {
+    public static void cheeseAir() { // 0,0 부터 돌면서 bfs로 새롭게 녹을 부분 탐색
         Queue<int[]> outside = new LinkedList<>();
         outside.offer(new int[]{0, 0});
         map[0][0] = 2;
