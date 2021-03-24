@@ -25,8 +25,8 @@ public class Prob12865_평범한배낭 {
             System.arraycopy(DP[i - 1], 0, DP[i], 0, K + 1);
             for (int j = 1; j <= K; j++) {
                 if (j >= weight) {
-                    DP[i][j] = Math.max(DP[i][j - 1], DP[i - 1][j - weight] + worth);
-                    DP[i][j] = Math.max(DP[i][j], DP[i - 1][j]);
+                    DP[i][j] = Math.max(DP[i][j - 1],
+                            Math.max(DP[i][j], DP[i - 1][j - weight] + worth));
                 }
             }
         }
