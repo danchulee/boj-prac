@@ -109,7 +109,7 @@ public class Prob14621_나만안되는연애 {
             }
         }
         for (int i = 1; i < N; i++)
-            if (parents[i] != parents[i - 1]) { // 이 부분을 꼭 할 수 밖에 없나? 다른 방법?
+            if (findSet(i) != findSet(i - 1)) { // 이 부분을 꼭 할 수 밖에 없나? 다른 방법?
                 answer = 0;
                 break;
             }
@@ -152,9 +152,10 @@ public class Prob14621_나만안되는연애 {
         int aRoot = findSet(a);
         int bRoot = findSet(b);
         if (aRoot == bRoot) return false;
-        int tmp = parents[bRoot];
-        for (int i = 0; i < N; i++) // 이거 생략하려면 어떻게..?
-            if (parents[i] == tmp) parents[i] = aRoot;
+//        int tmp = parents[bRoot];
+//        for (int i = 0; i < N; i++) // 이거 생략하려면 어떻게..?
+//            if (parents[i] == tmp) parents[i] = aRoot;
+        parents[bRoot] = aRoot;
         return true;
     }
 }
