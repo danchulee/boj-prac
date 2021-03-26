@@ -42,9 +42,9 @@ public class Prob1197_최소스패닝트리 {
 
         int cnt = 0;
         int[] min;
-        while (!pq.isEmpty()) {
+        while (!pq.isEmpty()) { // 주의할 포인트 2개
             min = pq.poll();
-            if(visit[min[0]]) // 이거 안 해줬더니 한 번 틀림
+            if(visit[min[0]]) // 이거 안 해줬더니  번 틀림
                 continue;
             visit[min[0]] = true;
             answer += min[1];
