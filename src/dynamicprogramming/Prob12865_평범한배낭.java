@@ -21,7 +21,7 @@ public class Prob12865_평범한배낭 {
         for (int i = 1; i <= N; i++) {
             weight = costs[i][0];
             worth = costs[i][1];
-            DP[i][0] = DP[i - 1][0];
+            //DP[i][0] = DP[i - 1][0];
             System.arraycopy(DP[i - 1], 0, DP[i], 0, K + 1);
             for (int j = 1; j <= K; j++) {
                 if (j >= weight) {
