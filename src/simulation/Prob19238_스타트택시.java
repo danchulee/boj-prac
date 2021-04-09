@@ -3,7 +3,6 @@ package simulation;
 import java.io.*;
 import java.util.*;
 
-// 목적지 같은 고객 처리해줘야 함
 public class Prob19238_스타트택시 {
     static int N, M, oil;
     static int[][] map;
@@ -11,7 +10,7 @@ public class Prob19238_스타트택시 {
     static ArrayList<int[]> customers = new ArrayList<>();
     static HashSet<Integer>[][] dest;
     static boolean[][] visit;
-    static int[] dx = {0, -1, 1, 0, 0};
+    static int[] dx = {0, -1, 1, 0, 0}; // 출발지 = 목적지인 경우를 처리해줘야 하기 때문에 0,0 도 넣어줌
     static int[] dy = {0, 0, 0, -1, 1};
     static int success;
 
@@ -24,12 +23,12 @@ public class Prob19238_스타트택시 {
 
         map = new int[N][N];
         visit = new boolean[N][N];
-        dest = new HashSet[N][N];
-        for (int i = 0; i < N; i++) { // 0 빈칸 1 빈 벽
+        dest = new HashSet[N][N]; // 목적지 여러개 처리 위해 set
+        for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < N; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
-                dest[i][j] = new HashSet<>();
+                dest[i][j] = new HashSet<>(); // 맵 전체 도는 김에 같이 객체 생성
             }
         }
         st = new StringTokenizer(br.readLine());
@@ -43,12 +42,12 @@ public class Prob19238_스타트택시 {
             start_y = Integer.parseInt(st.nextToken()) - 1;
             end_x = Integer.parseInt(st.nextToken()) - 1;
             end_y = Integer.parseInt(st.nextToken()) - 1;
-            map[start_x][start_y] = -(i + 1);
-            dest[end_x][end_y].add(i + 1);
+            map[start_x][start_y] = -(i + 1);   // 출발지 (음수)
+            dest[end_x][end_y].add(i + 1);      // 목적
         }
         int res;
         for (int i = 0; i < M; i++) {
-            res = takeup();
+            res = takeup();   // 손님 태우기
             if (res == -1) {
                 System.out.print(-1);
                 break;
@@ -58,8 +57,6 @@ public class Prob19238_스타트택시 {
             System.out.print(oil);
     }
 
-    // 가장 가까운 승객부터 운행
-    // 그 중 행 번호가 가장 작고, 열 번호가 가장 작은 사람부터
     public static int takeup() {
         customers.clear();
         for (int i = 0; i < N; i++)
@@ -71,9 +68,10 @@ public class Prob19238_스타트택시 {
         boolean found = false;
         int nx, ny, size, tmp_oil = oil;
         int[] curr;
-        // 음수 번호 : 시작점
-        // 음수 번호 + INF : 도착점
-        while (!taxi.isEmpty() && !found && tmp_oil > 0) { // 태울 수 있는 손님 찾기
+
+        // 1. 찾을 때까지
+        // 2. 기름 남아있을 때까지
+        while (!taxi.isEmpty() && !found && tmp_oil > 0) {
             tmp_oil--;
             size = taxi.size();
             while (size-- > 0) {
@@ -84,20 +82,20 @@ public class Prob19238_스타트택시 {
                     if (nx < 0 || ny < 0 || nx >= N || ny >= N || map[nx][ny] == 1 || visit[nx][ny])
                         continue;
                     visit[nx][ny] = true;
-                    if (map[nx][ny] < 0) { // 시작점
-                        found = true;
-                        customers.add(new int[]{nx, ny});
-                        if (i == 0) {
+                    if (map[nx][ny] < 0) {
+                        found = true;   // 이번 단계 끝나고 out (같은 거리 찾아야하므로 바로 안 빠져나감)
+                        customers.add(new int[]{nx, ny});   // 출발지
+                        if (i == 0) {   // 현재 위치에서 찾음 (기름 안 닳음)
                             tmp_oil++;
                             break;
                         }
-                    } else taxi.offer(new int[]{nx, ny});
+                    } else taxi.offer(new int[]{nx, ny}); // 이동중
                 }
             }
         }
 
         if (!customers.isEmpty()) {
-            customers.sort(new Comparator<int[]>() {
+            customers.sort(new Comparator<int[]>() {    // 우선순위 정렬
                 @Override
                 public int compare(int[] o1, int[] o2) {
                     if (o1[0] != o2[0]) return o1[0] - o2[0];
@@ -108,21 +106,21 @@ public class Prob19238_스타트택시 {
             int res;
             int[] first = customers.get(0);
             int num = -(map[first[0]][first[1]]);
-            taxistart[0] = first[0];
+            taxistart[0] = first[0];    // 택시 시작점 변경
             taxistart[1] = first[1];
             // 손님 태움
-            map[first[0]][first[1]] = 0;
+            map[first[0]][first[1]] = 0;  // 시작 위치 지움
             // 데려다 줄 수 있는가?
-            oil = tmp_oil;
-            if ((res = takedown(oil, num)) != -1) {
+            oil = tmp_oil; // 기름값 자체를 갱신
+            if ((res = takedown(oil, num)) != -1) { // 손님 내려주러 감 (반환: 남은 기름값 / -1 = 못 내려줌)
                 success++;
-                return oil - res;
+                return oil - res; // 사용한 기름값 반환
             }
         }
         return -1; // 태울 사람 없으면 바로 return
     }
 
-    public static int takedown(int tmp_oil, int num) { // 남은 오일 리턴, 못 가면 -1
+    public static int takedown(int tmp_oil, int num) {
         for (int i = 0; i < N; i++)
             Arrays.fill(visit[i], false);
 
@@ -143,11 +141,11 @@ public class Prob19238_스타트택시 {
                         continue;
                     visit[nx][ny] = true;
                     if (dest[nx][ny].contains(num)) { // 도착점
-                        if (i == 0)
+                        if (i == 0)     // 기름 안 씀 현재 위치 = 도착점
                             tmp_oil++;
                         taxistart[0] = nx;
                         taxistart[1] = ny;
-                        return tmp_oil;
+                        return tmp_oil; // 목적지 찾음
                     } else taxi.offer(new int[]{nx, ny});
                 }
             }

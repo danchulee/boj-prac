@@ -20,8 +20,10 @@ public class Prob5430_AC {
             n = Integer.parseInt(br.readLine());
             arr = new StringBuilder(br.readLine());
             st = new StringTokenizer(arr.substring(1, arr.length() - 1), ",");
+
             while (st.hasMoreTokens())
                 deque.addLast(Integer.parseInt(st.nextToken()));
+
             error = false;
             r_cnt = 0;
             length = p.length();
@@ -39,6 +41,7 @@ public class Prob5430_AC {
                         deque.pollLast();
                 }
             }
+
             if (error) answer.append("error").append("\n");
             else {
                 int size = deque.size();
