@@ -1,10 +1,10 @@
-package etc;
+package greedy;
 
 import java.io.*;
 import java.util.*;
 
 public class Prob5545_최고의피자 {
-    static int N, A, B, C, ans;
+    static int N, A, B, C;
     static int[] kcal;
 
     public static void main(String[] args) throws Exception {
@@ -20,18 +20,16 @@ public class Prob5545_최고의피자 {
             kcal[i] = Integer.parseInt(br.readLine());
         Arrays.sort(kcal);
 
-        int new_price, price = A;
-        int new_kcals, kcals = C;
+        int price = A;
+        int kcals = C;
         int new_ans, ans = kcals / price;
         for (int i = N - 1; i >= 0; i--) {
-            new_price = price + B;
-            new_kcals = kcals + kcal[i];
-            new_ans = new_kcals / new_price;
-            if (ans <= new_ans) {
-                price = new_price;
-                kcals = new_kcals;
+            price += B;
+            kcals += kcal[i];
+            new_ans = kcals / price;
+            if (ans <= new_ans) // 등호 조심
                 ans = new_ans;
-            } else break;
+            else break;
         }
 
         System.out.print(ans);
