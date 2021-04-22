@@ -9,28 +9,7 @@ public class Prob1194_달이차오른다가자 {
     static int N, M;
     static char[][] map;
     static int[] start;
-    static HashSet<Dest> dest = new HashSet<>();
     static boolean[][][] visit;
-
-    static class Dest {
-        int r, c;
-
-        Dest(int r, int c) {
-            this.r = r;
-            this.c = c;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            Dest dest = (Dest) o;
-            return r == dest.r && c == dest.c;
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(r, c);
-        }
-    }
 
 
     public static void main(String[] args) throws Exception {
@@ -48,7 +27,6 @@ public class Prob1194_달이차오른다가자 {
                 map[i][j] = tmp.charAt(j);
                 if (map[i][j] == '0')
                     start = new int[]{i, j};
-                else if (map[i][j] == '1') dest.add(new Dest(i, j));
             }
         }
         System.out.print(maze());
@@ -71,14 +49,15 @@ public class Prob1194_달이차오른다가자 {
                 for (int i = 0; i < 4; i++) {
                     nr = curr[0] + dr[i];
                     nc = curr[1] + dc[i];
-                    if (nr < 0 || nc < 0 || nr >= N || nc >= M || map[nr][nc] == '#' || visit[curr[2]][nr][nc]) continue;
-                    if (dest.contains(new Dest(nr, nc))) return moves;
+                    if (nr < 0 || nc < 0 || nr >= N || nc >= M || map[nr][nc] == '#' || visit[curr[2]][nr][nc])
+                        continue;
+                    if (map[nr][nc] == '1') return moves;
                     nkeys = curr[2];
-                    if (map[nr][nc] >= 'a' && map[nr][nc] <= 'f') {
+                    if (map[nr][nc] >= 'a' && map[nr][nc] <= 'f')
                         nkeys = (nkeys | (1 << map[nr][nc] - 'a'));
-                    } else if (map[nr][nc] >= 'A' && map[nr][nc] <= 'F') {
-                        if ((curr[2] & (1 << map[nr][nc] - 'A')) == 0) continue;
-                    }
+                    else if (map[nr][nc] >= 'A' && map[nr][nc] <= 'F')
+                        if ((curr[2] & (1 << map[nr][nc] - 'A')) == 0)
+                            continue;
                     visit[curr[2]][nr][nc] = true;
                     q.offer(new int[]{nr, nc, nkeys});
                 }
