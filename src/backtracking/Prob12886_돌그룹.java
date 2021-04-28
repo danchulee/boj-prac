@@ -5,7 +5,8 @@ import java.util.*;
 
 public class Prob12886_돌그룹 {
     static int A, B, C;
-    static HashSet<Integer> set = new HashSet<>();
+    //static HashSet<Integer> set = new HashSet<>();
+    static boolean[][] check = new boolean[1501][1501];
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,7 +14,6 @@ public class Prob12886_돌그룹 {
         A = Integer.parseInt(st.nextToken());
         B = Integer.parseInt(st.nextToken());
         C = Integer.parseInt(st.nextToken());
-        int MAX = Math.max(A, Math.max(B, C));
         if ((A + B + C) % 3 != 0)
             System.out.print(0);
         else {
@@ -23,12 +23,15 @@ public class Prob12886_돌그룹 {
     }
 
     public static boolean dfs(int[] stones) {
-        if (set.contains(stones[0] * stones[1] * stones[2])) return false;
+        //if (set.contains(stones[0] * stones[1] * stones[2])) return false;
+        if (check[stones[0]][stones[1]]) return false;
         if (stones[0] <= 0 || stones[1] <= 0 || stones[2] <= 0)
             return false;
         if (stones[0] == stones[1] && stones[1] == stones[2])
             return true;
-        set.add(stones[0] * stones[1] * stones[2]);
+        //set.add(stones[0] * stones[1] * stones[2]);
+        check[stones[0]][stones[1]] = check[stones[0]][stones[2]] = check[stones[1]][stones[0]]
+                = check[stones[1]][stones[2]] = check[stones[2]][stones[0]] = check[stones[2]][stones[1]] = true;
         int one, two;
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++) {
