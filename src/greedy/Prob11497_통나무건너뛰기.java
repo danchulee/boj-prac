@@ -1,4 +1,4 @@
-package dfsnbfs;
+package greedy;
 
 import java.io.*;
 import java.util.*;
