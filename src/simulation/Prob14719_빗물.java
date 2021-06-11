@@ -44,6 +44,7 @@ public class Prob14719_빗물 {
                 left = i;
                 progress = true;
             }
+            System.out.print(ans);
         }
         System.out.print(ans);
     }
