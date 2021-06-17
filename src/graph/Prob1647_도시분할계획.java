@@ -28,7 +28,6 @@ public class Prob1647_도시분할계획 {
         }
     }
 
-    // 결국 다 한붓그리기 처럼 연결되는... 그니까 그냥 가장 작은 mst 구하면 된다
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -65,7 +64,7 @@ public class Prob1647_도시분할계획 {
         int aRoot = find(a);
         int bRoot = find(b);
         if (aRoot == bRoot) return false;
-        else if (aRoot < bRoot) parent[bRoot] = aRoot;
+        else if (aRoot > bRoot) parent[bRoot] = aRoot;
         else parent[aRoot] = bRoot;
         return true;
 
