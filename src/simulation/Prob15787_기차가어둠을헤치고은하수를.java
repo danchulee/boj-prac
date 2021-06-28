@@ -1,49 +1,43 @@
 package simulation;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Prob15787_기차가어둠을헤치고은하수를 {
     static int N, M;
+    static int[] trains;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        Map<String, Integer> pass = new HashMap<>();
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-        int[][] trains = new int[N][20];
+        trains = new int[N + 1];
 
-        for (int i = 0; i < M; i++) {
+        int order, i, x;
+        while (M-- > 0) {
             st = new StringTokenizer(br.readLine());
-            int select = Integer.parseInt(st.nextToken());
-            int train = Integer.parseInt(st.nextToken()) - 1;
-            switch (select) {
+            order = Integer.parseInt(st.nextToken());
+            i = Integer.parseInt(st.nextToken());
+            switch (order) {
                 case 1:
+                    x = Integer.parseInt(st.nextToken()) - 1;
+                    trains[i] |= (1 << x);
+                    break;
                 case 2:
-                    int seat = Integer.parseInt(st.nextToken()) - 1;
-                    trains[train][seat] = 2 - select;
+                    x = Integer.parseInt(st.nextToken()) - 1;
+                    trains[i] &= ~(1 << x); // x 자리 bit 0으로
                     break;
                 case 3:
-                    for (int j = 0; j < 19; j++)
-                        trains[train][j + 1] = trains[train][j];
+                    trains[i] <<= 1;
+                    trains[i] &= ~(1 << 20);
                     break;
                 case 4:
-                    for (int j = 0; j < 19; j++)
-                        trains[train][j] = trains[train][j + 1];
+                    trains[i] >>= 1;
             }
         }
-        for (int i = 0; i < N; i++) {
-            StringBuilder sb = new StringBuilder();
-            for (int j : trains[i])
-                sb.append(j);
-            String tmp = sb.toString();
-            if (!pass.containsKey(tmp) && tmp.contains("1"))
-                pass.put(tmp, 1);
-        }
-        System.out.print(pass.size());
+        HashSet<Integer> set = new HashSet<>();
+        for (int j = 1; j <= N; j++) set.add(trains[j]);
+        System.out.print(set.size());
     }
 }
