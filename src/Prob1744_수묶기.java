@@ -18,13 +18,13 @@ public class Prob1744_수묶기 {
         else {
             Arrays.sort(nums, (o1, o2) -> {
                 if (o1 > 0 && o2 > 0) return o2 - o1;
-                else return 0;
+                else return o1 - o2;
             });
             int index = 0;
             for (; index < N && nums[index] < 0; index += 2) {
                 if (index == N - 1) {
                     answer += nums[index];
-                }else if (nums[index + 1] == 0) {
+                } else if (nums[index + 1] == 0) {
                     index += 2;
                     break;
                 } else if (nums[index + 1] > 0) {
