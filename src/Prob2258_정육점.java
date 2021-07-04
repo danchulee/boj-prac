@@ -21,14 +21,17 @@ public class Prob2258_정육점 {
             else return o1[1] - o2[1];
         });
         int ans = Integer.MAX_VALUE, sum = 0, duplicate = 0;
+        boolean flag = false;
         for (int i = 0; i < N; i++) {
             sum += meat[i][0];
             if (i > 0 && meat[i - 1][1] == meat[i][1]) // 가격 겹치면 변수에 저장
                 duplicate += meat[i][1];
             else duplicate = meat[i][1];
-            if (sum >= M)
+            if (sum >= M) {
+                flag = true;
                 ans = Math.min(ans, duplicate);
+            }
         }
-        System.out.print(ans == Integer.MAX_VALUE ? -1 : ans);
+        System.out.print(flag ? ans : -1);
     }
 }
