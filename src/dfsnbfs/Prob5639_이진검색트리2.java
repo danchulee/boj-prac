@@ -1,7 +1,6 @@
 package dfsnbfs;
 
 import java.io.*;
-import java.util.*;
 
 public class Prob5639_이진검색트리2 {
     static Node root;
