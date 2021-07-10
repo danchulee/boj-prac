@@ -25,7 +25,7 @@ public class Prob9465_스티커 {
             }
             DP[0][0] = sticker[0][0];
             DP[1][0] = sticker[1][0];
-            int tmp, max = Math.max(DP[0][0], DP[1][0]);
+            int tmp;
             for (int i = 1; i < N; i++) {
                 DP[0][i] = DP[1][i - 1] + sticker[0][i];
                 DP[1][i] = DP[0][i - 1] + sticker[1][i];
